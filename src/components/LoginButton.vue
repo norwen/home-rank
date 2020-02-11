@@ -8,10 +8,10 @@
 </template>
 
 <script>
-  export default {
-    name: "LoginButton",
-    props: {}
-  }
+export default {
+  name: 'LoginButton',
+  props: {}
+}
 </script>
 
 <style scoped>

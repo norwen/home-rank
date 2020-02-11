@@ -13,20 +13,20 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex"
-import LoginButton from "./LoginButton";
-import LogoutButton from "./LogoutButton";
-import HeaderUserInfo from "./HeaderUserInfo"
+import { mapGetters } from 'vuex'
+import LoginButton from './LoginButton'
+import LogoutButton from './LogoutButton'
+import HeaderUserInfo from './HeaderUserInfo'
 
 export default {
-  name: "TheHeader",
+  name: 'TheHeader',
   components: {
     LoginButton,
     LogoutButton,
     HeaderUserInfo
   },
   computed: {
-    ...mapGetters(["currentUser", "isAuthenticated"])
+    ...mapGetters(['currentUser', 'isAuthenticated'])
   }
 }
 </script>

@@ -18,7 +18,7 @@ import VideoDescription from './VideoDescription'
 import VideoActions from './VideoActions'
 
 export default {
-  name: "VideoCard",
+  name: 'VideoCard',
   components: {
     VideoPreview,
     VideoDescription,
@@ -59,26 +59,26 @@ export default {
     }
   },
   computed: {
-    id() {
+    id () {
       return this.video && this.video.id
     },
-    title() {
+    title () {
       return this.video && this.video.title
     },
-    description() {
+    description () {
       return this.video && this.video.description
     },
-    authorName() {
+    authorName () {
       return this.video.author && this.video.author.title
     },
-    authorNameStr() {
+    authorNameStr () {
       return (this.authorName && `by ${this.authorName}`) || ''
     },
-    videoLikeCount() {
+    videoLikeCount () {
       return this.video && this.video.likesCount
     }
   }
-};
+}
 </script>
 
 <style scoped>

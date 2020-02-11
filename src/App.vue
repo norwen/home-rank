@@ -8,13 +8,13 @@
 
 export default {
   name: 'App',
-  data() {
+  data () {
     return {
-      theme: '',
+      theme: ''
     }
   },
   mounted: function () {
-    this.theme = localStorage.getItem('theme') || 'theme-light';
+    this.theme = localStorage.getItem('theme') || 'theme-light'
   }
 }
 </script>

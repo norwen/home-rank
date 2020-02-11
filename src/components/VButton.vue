@@ -5,15 +5,15 @@
 </template>
 
 <script>
-  export default {
-    name: "VButton",
-    props: {
-      onClick: {
-        type: Function,
-        required: true
-      }
+export default {
+  name: 'VButton',
+  props: {
+    onClick: {
+      type: Function,
+      required: true
     }
   }
+}
 </script>
 
 <style scoped>

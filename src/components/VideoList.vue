@@ -9,12 +9,12 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-import { FETCH_CATALOG, FETCH_USER_VIDEOS } from "@/store/actions.type";
+import { mapGetters } from 'vuex'
+import { FETCH_CATALOG, FETCH_USER_VIDEOS } from '@/store/actions.type'
 import VideoCard from './VideoCard'
 
 export default {
-  name: "VideoList",
+  name: 'VideoList',
   components: {
     VideoCard
   },
@@ -22,21 +22,21 @@ export default {
 
   },
   computed: {
-    ...mapGetters(["videos", "isLoading"])
+    ...mapGetters(['videos', 'isLoading'])
   },
-  data() {
+  data () {
     return {
       // state
-    };
+    }
   },
-  mounted() {
-    this.fetchCatalog();
+  mounted () {
+    this.fetchCatalog()
   },
   methods: {
-    fetchCatalog() {
-      this.$store.dispatch(FETCH_CATALOG);
-      this.$store.dispatch(FETCH_USER_VIDEOS);
+    fetchCatalog () {
+      this.$store.dispatch(FETCH_CATALOG)
+      this.$store.dispatch(FETCH_USER_VIDEOS)
     }
   }
-};
+}
 </script>

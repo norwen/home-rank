@@ -10,21 +10,21 @@
 </template>
 
 <script>
-  import VideoList from "@/components/VideoList"
-  import LayoutDefault from "@/layouts/LayoutDefault"
+import VideoList from '@/components/VideoList'
+import LayoutDefault from '@/layouts/LayoutDefault'
 
-  export default {
-    name: "catalog",
-    data() {
-      return {
-        pageName: "Video Catalog"
-      }
-    },
-    components: {
-      LayoutDefault,
-      VideoList
-    },
-    computed: {
+export default {
+  name: 'catalog',
+  data () {
+    return {
+      pageName: 'Video Catalog'
     }
-  };
+  },
+  components: {
+    LayoutDefault,
+    VideoList
+  },
+  computed: {
+  }
+}
 </script>

@@ -9,16 +9,16 @@
 </template>
 
 <script>
-import TheHeader from "@/components/TheHeader"
-import TheFooter from "@/components/TheFooter"
+import TheHeader from '@/components/TheHeader'
+import TheFooter from '@/components/TheFooter'
 
 export default {
-  name: "layout-default",
+  name: 'layout-default',
   components: {
     TheFooter,
     TheHeader
   }
-};
+}
 </script>
 
 <style scoped>

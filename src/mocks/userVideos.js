@@ -1,5 +1,5 @@
 export const userVideos = {
-  '123': {
+  123: {
     videos: [
       {
         id: 285735,

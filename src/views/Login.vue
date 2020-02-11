@@ -41,24 +41,24 @@
 </template>
 
 <script>
-  import { LOGIN } from "@/store/actions.type";
+import { LOGIN } from '@/store/actions.type'
 
-  export default {
-    name: "UserLogin",
-    data: function () {
-      return {
-        name: '',
-        email: ''
-      }
-    },
-    methods: {
-      onSubmit(email, name) {
-        this.$store
-          .dispatch(LOGIN, { email, name })
-          .then(() => this.$router.push({ name: "catalog" }));
-      }
+export default {
+  name: 'UserLogin',
+  data: function () {
+    return {
+      name: '',
+      email: ''
     }
-  };
+  },
+  methods: {
+    onSubmit (email, name) {
+      this.$store
+        .dispatch(LOGIN, { email, name })
+        .then(() => this.$router.push({ name: 'catalog' }))
+    }
+  }
+}
 </script>
 
 <style scoped>

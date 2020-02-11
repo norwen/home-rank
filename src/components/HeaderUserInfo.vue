@@ -5,15 +5,15 @@
 </template>
 
 <script>
-  import { mapGetters } from "vuex"
+import { mapGetters } from 'vuex'
 
-  export default {
-    name: "HeaderUserInfo",
-    computed: {
-      ...mapGetters(["userLikeCreditsActive", "userLikeCreditsTotal"]),
-      userLikesStr() {
-        return `${this.userLikeCreditsActive} / ${this.userLikeCreditsTotal}`;
-      }
+export default {
+  name: 'HeaderUserInfo',
+  computed: {
+    ...mapGetters(['userLikeCreditsActive', 'userLikeCreditsTotal']),
+    userLikesStr () {
+      return `${this.userLikeCreditsActive} / ${this.userLikeCreditsTotal}`
     }
   }
+}
 </script>

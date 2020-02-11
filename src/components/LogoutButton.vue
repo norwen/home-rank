@@ -3,20 +3,20 @@
 </template>
 
 <script>
-import VButton from '@/components/VButton';
-import { LOGOUT } from "../store/actions.type";
-import { PATHS } from "../router";
+import VButton from '@/components/VButton'
+import { LOGOUT } from '../store/actions.type'
+import { PATHS } from '../router'
 
 export default {
-  name: "LogoutButton",
+  name: 'LogoutButton',
   components: {
     VButton
   },
   methods: {
-    logout() {
+    logout () {
       this.$store.dispatch(LOGOUT).then(() => {
-        this.$router.push({ name: PATHS.login });
-      });
+        this.$router.push({ name: PATHS.login })
+      })
     }
   }
 }

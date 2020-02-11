@@ -11,17 +11,17 @@
 
 <script>
 export default {
-  name: "VideoPreview",
+  name: 'VideoPreview',
   props: {
     title: {
       type: String
     },
     src: {
       type: String,
-      default: "https://dtsvkkjw40x57.cloudfront.net/350xnull/images/programs/302453/horizontal/2506_2Fcatalog_image_2F409682_2FSM7aONXQRmg0kBstk2Lj_02_2020_Vlog_20Thumbnail.jpg"
+      default: 'https://dtsvkkjw40x57.cloudfront.net/350xnull/images/programs/302453/horizontal/2506_2Fcatalog_image_2F409682_2FSM7aONXQRmg0kBstk2Lj_02_2020_Vlog_20Thumbnail.jpg'
     }
   }
-};
+}
 </script>
 
 <style scoped>

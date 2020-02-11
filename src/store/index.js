@@ -1,11 +1,11 @@
-import Vue from "vue";
-import Vuex from "vuex";
+import Vue from 'vue'
+import Vuex from 'vuex'
 
-import catalog from "./catalog.module";
-import auth from "./auth.module";
-import userVideos from "./userVideos.module";
+import catalog from './catalog.module'
+import auth from './auth.module'
+import userVideos from './userVideos.module'
 
-Vue.use(Vuex);
+Vue.use(Vuex)
 
 export default new Vuex.Store({
   modules: {
@@ -13,4 +13,4 @@ export default new Vuex.Store({
     auth,
     userVideos
   }
-});
+})

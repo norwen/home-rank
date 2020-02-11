@@ -13,29 +13,29 @@
 </template>
 
 <script>
-  export default {
-    name: "VideoDescription",
-    props: {
-      description: {
-        type: String
-      }
-    },
-    data() {
-      return {
-        isDescriptionShort: true
-      }
-    },
-    computed: {
-      descriptionSizeToggleTitle() {
-        return this.isDescriptionShort ? '>>>Show more' : '<<<Show less';
-      }
-    },
-    methods: {
-      toggleDescriptionSize: function () {
-        this.isDescriptionShort = !this.isDescriptionShort;
-      }
-    },
-  };
+export default {
+  name: 'VideoDescription',
+  props: {
+    description: {
+      type: String
+    }
+  },
+  data () {
+    return {
+      isDescriptionShort: true
+    }
+  },
+  computed: {
+    descriptionSizeToggleTitle () {
+      return this.isDescriptionShort ? '>>>Show more' : '<<<Show less'
+    }
+  },
+  methods: {
+    toggleDescriptionSize: function () {
+      this.isDescriptionShort = !this.isDescriptionShort
+    }
+  }
+}
 </script>
 
 <style scoped>

@@ -5,8 +5,8 @@
 </template>
 
 <script>
-  export default {
-    name: "TheFooter",
-    props: {}
-  }
+export default {
+  name: 'TheFooter',
+  props: {}
+}
 </script>
