@@ -13,12 +13,12 @@ import {
 import findIndex from 'lodash/findIndex'
 
 import { users as mockUsers } from '@/mocks/users'
-// const API_BASE_URL = 'https://fwfg.com/api/'
+const API_BASE_URL = 'https://fwfg.com/api/'
 
 const ApiService = {
   init () {
     Vue.use(VueAxios, axios)
-    Vue.axios.defaults.baseURL = ''
+    Vue.axios.defaults.baseURL = API_BASE_URL
   },
 
   setHeader () {
@@ -119,6 +119,6 @@ export const ContentService = {
   get (params) {
     const mockDataParams = { category_id: 23751 }
 
-    return ApiService.get('http://www.mocky.io/v2/5e4213952f0000840087f334', { params: mockDataParams } || params)
+    return ApiService.get('contents', { params: mockDataParams } || params)
   }
 }
