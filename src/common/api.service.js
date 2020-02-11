@@ -1,18 +1,15 @@
 import Vue from 'vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
-import { saveToken, JwtService } from './jwt.service'
+import { saveToken, getToken } from './jwt.service'
 
 import {
   saveUserData,
   getUserData,
-  getVideosData,
-  setVideosData,
   initUserVideos,
   getUserVideos,
   setUserVideos
 } from '../mocks/lsDbHelpers'
-import { getRandomLikesCount } from '../helpers'
 import findIndex from 'lodash/findIndex'
 
 import { users as mockUsers } from '@/mocks/users'
@@ -25,27 +22,17 @@ const ApiService = {
   },
 
   setHeader () {
-    Vue.axios.defaults.headers.common.Authorization = `Token ${JwtService.getToken()}`
+    Vue.axios.defaults.headers.common.Authorization = `Token ${getToken()}`
   },
 
   get (resource, params) {
     return Vue.axios.get(resource, { params }).catch(error => {
-      throw new Error(`[RWV] ApiService ${error}`)
+      throw new Error(`ApiService ${error}`)
     })
   },
 
   post (resource, params) {
     return Vue.axios.post(`${resource}`, params)
-  },
-
-  put (resource, params) {
-    return Vue.axios.put(`${resource}`, params)
-  },
-
-  delete (resource) {
-    return Vue.axios.delete(resource).catch(error => {
-      throw new Error(`ApiService ${error}`)
-    })
   }
 }
 
@@ -132,35 +119,6 @@ export const ContentService = {
   get (params) {
     const mockDataParams = { category_id: 23751 }
 
-    return ApiService.get('http://www.mocky.io/v2/5e3f89603300007f08b04bee', { params: mockDataParams } || params)
-  }
-}
-
-// eslint-disable-next-line no-unused-vars
-export const ContentMockService = {
-  patchData (data) {
-    const videosMockInfo = getVideosData()
-
-    if (videosMockInfo && videosMockInfo.length === 0) {
-      data.forEach(video => {
-        videosMockInfo.push({
-          id: video.id,
-          likesCount: getRandomLikesCount()
-        })
-      })
-
-      setVideosData(videosMockInfo)
-    }
-
-    const dataPatched = data.map(video => {
-      const videoMockInfo = videosMockInfo.find(mockVid => mockVid.id === video.id)
-
-      return {
-        ...video,
-        likesCount: videoMockInfo.likesCount
-      }
-    })
-
-    return Promise.resolve(dataPatched)
+    return ApiService.get('http://www.mocky.io/v2/5e4213952f0000840087f334', { params: mockDataParams } || params)
   }
 }

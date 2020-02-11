@@ -1,13 +1,13 @@
 <template>
   <div class="videoActions">
-    <div class="vote">
-      <div class="userLikes">
+    <div class="pl-4 flex items-center">
+      <div class="likeCounter text-accent">
         {{ userLikeCount }}
       </div>
-      <div @click="debouncedRankVideo" class="hover:cursor-pointer">
+      <div @click="rankVideo" class="px-2 hover:cursor-pointer">
         <icon-video-like disabled="isLikeLocked" :isActive="!isLikeLocked" />
       </div>
-      <div class="totalLikes">
+      <div class="likeCounter text-primary">
         {{ totalVideoLikes }}
       </div>
     </div>
@@ -18,7 +18,7 @@
 import { mapGetters } from 'vuex'
 import debounce from 'lodash/debounce'
 import { RANK_USER_VIDEO } from '@/store/actions.type'
-import IconVideoLike from './Icon/IconVideoLike'
+import IconVideoLike from '../Icon/IconVideoLike'
 
 export default {
   name: 'VideoActions',
@@ -35,25 +35,22 @@ export default {
       type: Number
     },
     src: {
-      type: String,
-      default: 'https://dtsvkkjw40x57.cloudfront.net/350xnull/images/programs/302453/horizontal/2506_2Fcatalog_image_2F409682_2FSM7aONXQRmg0kBstk2Lj_02_2020_Vlog_20Thumbnail.jpg'
+      type: String
     },
     videoLikeCount: {
-      type: Number
+      type: Number,
+      default: 0
     }
   },
   computed: {
-    videoId () {
-      return this.id
-    },
     userVideo () {
-      return this.getUserVideoById(this.videoId)
+      return this.getUserVideoById(this.id)
     },
     userLikeCount () {
       return this.userVideo && this.userVideo.userLikeCount + this.freshLikes
     },
     totalVideoLikes () {
-      return this.videoLikeCount + this.userLikeCount + this.freshLikes
+      return this.videoLikeCount + this.freshLikes
     },
     isLikeLocked () {
       return !((this.userLikeCreditsActive - this.freshLikes) > 0)
@@ -61,25 +58,27 @@ export default {
     ...mapGetters(['getUserVideoById', 'userLikeCreditsActive'])
   },
   methods: {
-    rankVideo (addLikesCount) {
-      this.$store.dispatch(RANK_USER_VIDEO, { id: this.videoId, addLikesCount })
-    },
-    debouncedRankVideo () {
+    rankVideo () {
       if (!this.isLikeLocked) {
         this.freshLikes++
 
-        debounce(() => {
-          this.rankVideo(this.freshLikes)
-          this.freshLikes = 0
-        }, 700)()
+        this.debouncedRankVideo()
       }
-    }
+    },
+    debouncedRankVideo: debounce(function () {
+      this.$store.dispatch(RANK_USER_VIDEO, { id: this.id, addLikesCount: this.freshLikes })
+      this.freshLikes = 0
+    }, 700)
   }
 }
 </script>
 
 <style scoped>
   .videoActions {
-    @apply flex justify-between pt-4
+    @apply flex justify-between py-4 rounded-b-lg bg-background-primary;
+    margin-top: -3px;
+  }
+  .likeCounter {
+    @apply text-xl font-bold
   }
 </style>

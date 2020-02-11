@@ -1,11 +1,11 @@
 <template>
-  <div class="videoCardContainer container md:flex flex-wrap">
+  <div class="videoCardContainer container flex flex-col md:flex-row flex-wrap">
     <div class="videoTitle">
       <span class="title">{{ title }}</span>
       <span class="author">{{ authorNameStr }}</span>
     </div>
-    <div class="flex flex-col">
-      <VideoPreview :title="title" />
+    <div class="flex flex-col video">
+      <VideoPreview :title="title" :mainPoster="video.main_poster" :video="video.gif_preview" :duration="duration"/>
       <VideoActions :id="id" :videoLikeCount="videoLikeCount" />
     </div>
     <VideoDescription :description="description" />
@@ -76,12 +76,23 @@ export default {
     },
     videoLikeCount () {
       return this.video && this.video.likesCount
+    },
+    duration () {
+      return this.video && this.video.duration
     }
+  },
+  mounted () {
+    setTimeout(() => { this.mainPoster = this.main_poster }, 500)
   }
 }
 </script>
 
 <style scoped>
+.video {
+  height: auto;
+  width: 350px;
+}
+
 .videoCardContainer {
   @apply bg-background-neutral mb-4 px-6 pt-6 pb-10;
 }

@@ -5,6 +5,8 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
 .theme-light {
+  --z-index-header: 100500;
+
   --bg-background-primary: #fff;
   --bg-background-secondary: #202020;
   --bg-background-accent: #06D6A0;
@@ -26,4 +28,57 @@
   --color-button-disabled: #e2e2e2;
 
   --color-form-accent: #06D6A0;
+}
+
+.theme-dark {
+  --z-index-header: 100500;
+
+  --bg-background-primary: #202020;
+  --bg-background-secondary: #fff;
+  --bg-background-accent: #06D6A0;
+  --bg-background-neutral: #f6f5f6;
+
+  --color-primary: #fff;
+  --color-secondary: #2d3748;
+  --color-accent: #06D6A0;
+  --color-neutral: #7f8b95;
+
+
+  --color-link-primary: #04a078;
+  --color-link-primary-hover: #06cb97;
+
+  --color-button-primary: #06D6A0;
+  --color-button-primary-hover: #05b98a;
+  --color-button-secondary: #06bd8d;
+  --color-button-secondary-hover: #05a77d;
+  --color-button-disabled: #e2e2e2;
+
+  --color-form-accent: #06D6A0;
+}
+
+.contentPlaceholderWrapper span {
+  color: transparent;
+  position: relative;
+}
+
+.contentPlaceholderWrapper span:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 45%;
+  background-color: #c6ced92b;
+  animation: placeholderPulseAnimation 1.5s infinite;
+}
+
+.contentPlaceholderImage {
+  animation: placeholderPulseAnimation 1.5s infinite;
+}
+
+@keyframes placeholderPulseAnimation {
+  0% { opacity: .6; }
+  50% { opacity: 1; }
+  100% { opacity: .6; }
 }

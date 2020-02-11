@@ -1,11 +1,10 @@
 <template>
-  <div id="app" :class="theme" class="font-sans app-container">
+  <div id="app" :class="theme" class="font-sans app-container bg-background-primary">
       <router-view></router-view>
   </div>
 </template>
 
 <script>
-
 export default {
   name: 'App',
   data () {
@@ -17,10 +16,11 @@ export default {
     this.theme = localStorage.getItem('theme') || 'theme-light'
   }
 }
+
 </script>
 
 <style scoped>
   .app-container {
-    @apply h-screen;
+    @apply min-h-screen h-full;
   }
 </style>

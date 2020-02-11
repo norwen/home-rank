@@ -2,19 +2,19 @@
   <div class="flex min-h-full">
     <div class="md:w-2/4 min-h-full flex-1 flex flex-col items-center m-auto">
       <form
-              @submit.prevent="onSubmit(email, name)"
-              class="w-full max-w-sm m-auto"
+        @submit.prevent="onSubmit(email, name)"
+        class="w-full max-w-sm m-auto"
       >
         <div class="form-field">
           <label class="form-input-label" for="form-email">
             Email address
           </label>
           <input
-                  id="form-email"
-                  type="text"
-                  placeholder="email@aite.com"
-                  class="form-input"
-                  v-model="email"
+            id="form-email"
+            type="text"
+            placeholder="email@aite.com"
+            class="form-input"
+            v-model="email"
           />
         </div>
         <div class="form-field">
@@ -22,11 +22,11 @@
             Name
           </label>
           <input
-                  id="form-name"
-                  type="text"
-                  placeholder="Your name"
-                  class="form-input"
-                  v-model="name"
+            id="form-name"
+            type="text"
+            placeholder="Your name"
+            class="form-input"
+            v-model="name"
           />
         </div>
         <button class="login-button">

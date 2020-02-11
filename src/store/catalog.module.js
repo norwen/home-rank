@@ -1,5 +1,6 @@
-import { ContentService, ContentMockService } from '@/common/api.service'
-import { FETCH_CATALOG } from './actions.type'
+import { ContentService } from '@/common/api.service'
+import { FETCH_CATALOG, UPDATE_VIDEOS } from './actions.type'
+import { getPatchedVideos } from '../mocks/lsDbHelpers'
 import {
   FETCH_START,
   SET_VIDEOS
@@ -24,24 +25,21 @@ const actions = {
     commit(FETCH_START)
     return ContentService.get()
       .then(({ data }) => {
-        ContentMockService.patchData(data)
+        getPatchedVideos(data)
           .then((data) => commit(SET_VIDEOS, data))
       })
       .catch(error => {
         throw new Error(error)
       })
+  },
+  [UPDATE_VIDEOS] ({ commit, getters }, data) {
+    const videos = getters.videos
+    const newVideos = videos.map(vid =>
+      Object.assign({}, vid, data.find(dataEl => dataEl.id === vid.id) || {})
+    )
+
+    commit(SET_VIDEOS, newVideos)
   }
-  // },
-  // [UPDATE_VIDEO]({ commit, payload }) {
-  //   // обновляем одно видео, а в LS обновляем все, тк это наша база
-  //   return ContentService.updateVideo({ id, data })
-  //     .then(({ data }) => {
-  //       commit(SET_VIDEOS, data))
-  //     })
-  //     .catch(error => {
-  //       throw new Error(error);
-  //     });
-  // }
 }
 
 const mutations = {

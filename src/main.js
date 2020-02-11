@@ -1,11 +1,13 @@
 import Vue from 'vue'
 import App from './App.vue'
+import VueLazyload from 'vue-lazyload'
 import { router, PRIVATE_PAGES } from './router'
 import store from './store'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faHeart } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import defaultVideoPreview from '@/assets/default-video-preview.png'
 
 import './main.css'
 
@@ -29,8 +31,13 @@ router.beforeEach((to, from, next) => {
     })
   }
   return next()
-}
-)
+})
+
+Vue.use(VueLazyload, {
+  preLoad: 1.3,
+  loading: defaultVideoPreview,
+  attempt: 1
+})
 
 new Vue({
   router,
