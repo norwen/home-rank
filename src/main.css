@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+.theme-light {
+  --bg-background-primary: #fff;
+  --bg-background-secondary: #202020;
+  --bg-background-accent: #06D6A0;
+  --bg-background-neutral: #f6f5f6;
+
+  --color-primary: #2d3748;
+  --color-secondary: #fff;
+  --color-accent: #06D6A0;
+  --color-neutral: #7f8b95;
+
+
+  --color-link-primary: #04a078;
+  --color-link-primary-hover: #06cb97;
+
+  --color-button-primary: #06D6A0;
+  --color-button-primary-hover: #05b98a;
+  --color-button-secondary: #06bd8d;
+  --color-button-secondary-hover: #05a77d;
+  --color-button-disabled: #e2e2e2;
+
+  --color-form-accent: #06D6A0;
+}
